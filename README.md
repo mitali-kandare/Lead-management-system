@@ -10,7 +10,6 @@ The repository contains the following structure:
 * frontend/ - React + Vite SPA client.
 
 ---
-
 Database Setup
 
 The database schema consists of three tables: users, leads, and activity_logs.
