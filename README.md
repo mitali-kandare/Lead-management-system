@@ -2,18 +2,6 @@ LeadFlow - Lead Management System
 
 A mini Lead Management System built using Node.js/Express, PostgreSQL, and React.
 
----
-
-Setup Instructions
-
-Prerequisites
-
-Before setting up the project locally, ensure you have the following installed on your machine:
-
-* Node.js (v16+ recommended)
-* PostgreSQL (v13+ recommended) & pgAdmin
-* npm (installed automatically with Node.js)
-
 Project Layout
 
 The repository contains the following structure:
@@ -29,17 +17,12 @@ The database schema consists of three tables: users, leads, and activity_logs.
 
 Step 1: Create the Database
 
-In pgAdmin or via the PostgreSQL CLI (psql), create a new database:
-
 ```sql
 CREATE DATABASE lead_management;
 ```
 
 Step 2: Create Tables & Indexes
 
-Run the following SQL queries in the pgAdmin Query Tool for lead_management to establish the tables and indexes:
-
-```sql
 -- 1. Users Table
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
@@ -86,11 +69,6 @@ CREATE INDEX IF NOT EXISTS idx_activity_logs_lead_id ON activity_logs(lead_id);
 ---
 Environment Configuration
 
-Configure the environment settings so the backend API can connect to your local PostgreSQL instance.
-
-1. Locate the configuration file backend/.env (created from backend/.env.example).
-2. Configure the database credentials to match your local setup.
-
 ```env
 PORT=5000
 DB_HOST=localhost
@@ -107,8 +85,6 @@ How to Run Frontend & Backend
 
 1. Running the Backend API Server
 
-Navigate to the backend directory, install the required packages, and launch the development environment.
-
 ```powershell
 cd backend
 npm install
@@ -120,8 +96,6 @@ http://localhost:5000
 
 2. Running the Frontend SPA Client
 
-In a separate terminal window, navigate to the frontend directory, install the packages, and run the dev server.
-
 ```powershell
 cd frontend
 npm install
@@ -130,8 +104,6 @@ npm run dev
 
 The frontend will run on:
 http://localhost:5173
-
-Navigate to this URL in your web browser to open the application.
 
 ---
 API Documentation
@@ -173,7 +145,7 @@ Architecture Explanation
 
 The application follows a decoupled client-server SPA architecture.
 
-Frontend Architecture (React.js + Vite)
+Frontend Architecture (React.js)
 
 * Uses React Context API for authentication state management.
 * Uses react-router-dom for protected/public routing.
@@ -189,7 +161,6 @@ Backend Architecture (Node.js + Express.js)
 
 Data Flow Diagram
 
-```text
 [React Client] ---> [Express Router]
                            |
                            v
@@ -197,9 +168,6 @@ Data Flow Diagram
                            |
                            v
                     [RandomUser API]
-```
-
----
 
 Assumptions Made
 
